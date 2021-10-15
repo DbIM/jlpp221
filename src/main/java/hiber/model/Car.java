@@ -4,13 +4,17 @@ package hiber.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "car")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
     String model;
     int series;
+
+    @OneToOne(mappedBy = "car")
+    private User user;
 
     public String getModel() {
         return model;

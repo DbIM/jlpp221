@@ -13,6 +13,10 @@ public class User {
    private String lastName;
    private String email;
 
+   @OneToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "car_id", referencedColumnName = "id")
+   private Car car;
+
    public User() {}
    
    public User(String firstName, String lastName, String email) {
